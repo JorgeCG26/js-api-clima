@@ -1,13 +1,13 @@
 {
   "name": "js-api-clima",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Aplicativo web para consultar el clima de una ciudad.",
   "main": "index.js",
   "scripts": {
     "build/styles": "pnpx @tailwindcss/cli -i ./assets/css/input.css -o ./assets/css/output.css --watch"
   },
   "keywords": [],
-  "author": "",
+  "author": "Jorge Luis",
   "license": "ISC",
   "packageManager": "pnpm@10.28.0",
   "dependencies": {
