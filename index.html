@@ -4,6 +4,68 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Aplicativo Web | Clima</title>
+
+    <!-- Tailwind CSS / Styles -->
+    <link rel="stylesheet" href="assets/css/output.css" />
   </head>
-  <body></body>
+  <body
+    class="max-w-xl mx-auto flex flex-col min-h-dvh bg-linear-to-br from-black via-sky-900 to-sky-950"
+  >
+    <header class="pt-6 px-6">
+      <h1 class="text-white font-bold text-2xl">Aplicativo Web - Climatico</h1>
+      <p class="text-white mt-2">
+        Busca el clima de la ciudad y el país que prefieras.
+      </p>
+    </header>
+
+    <main class="px-6">
+      <form action="#" method="POST">
+        <input
+          type="text"
+          id="ciudad"
+          name="ciudad"
+          placeholder="Ingrese una ciudad..."
+          class="bg-white rounded-md mt-6 p-2.5 w-full"
+        />
+
+        <select
+          name="pais"
+          id="pais"
+          class="bg-white rounded-md mt-5 p-2.5 w-full"
+        >
+          <option value="" selected>-- Seleccionar --</option>
+        </select>
+
+        <input
+          type="text"
+          class="rounded-md mt-6 p-2.5 w-full text-center bg-linear-to-tr from-sky-800 via-sky-600 to-sky-800 text-white font-medium uppercase hover:cursor-pointer"
+          value="Obtener clima"
+        />
+      </form>
+
+      <section class="my-9 flex justify-center items-center flex-col space-y-8">
+        <h3 class="text-3xl text-white font-bold text-center">Clima en ....</h3>
+        <h2 class="text-8xl text-white font-black">24°C</h2>
+        <div class="flex gap-6">
+          <p class="text-white text-3xl font-medium">
+            Min: <span class="font-bold text-4xl">10°</span>
+          </p>
+          <p class="text-white text-3xl font-medium">
+            Max: <span class="font-bold text-4xl">11°</span>
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer
+      class="text-center bg-linear-to-tr from-gray-900 via-sky-950 to-gray-900 p-2.5 rounded-tl-md rounded-tr-md mt-auto"
+    >
+      <p class="text-white font-medium">
+        Aplicativo Web - Climático. @<span id="year"></span>
+      </p>
+    </footer>
+
+    <!-- Scripts / JavaScript -->
+    <script src="assets/js/app.js"></script>
+  </body>
 </html>
