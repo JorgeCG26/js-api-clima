@@ -4,9 +4,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Aplicativo Web | Clima</title>
+    <meta
+      name="description"
+      content="Aplicativo web climático para consultar el clima actual de ciudades en países de Latinoamérica."
+    />
 
     <!-- Tailwind CSS / Styles -->
-    <link rel="stylesheet" href="assets/css/output.css" />
+    <link
+      rel="preload"
+      href="assets/css/output.css"
+      as="style"
+      onload="this.rel = 'stylesheet'"
+    />
+
+    <noscript>
+      <link rel="stylesheet" href="assets/css/output.css" />
+    </noscript>
   </head>
   <body
     class="max-w-xl mx-auto flex flex-col min-h-dvh bg-linear-to-br from-black via-sky-900 to-sky-950"
@@ -51,10 +64,10 @@
       </form>
 
       <section class="my-9 flex justify-center items-center flex-col space-y-8">
-        <h3 id="nombreCiudad" class="text-3xl text-white font-bold text-center">
+        <h2 id="nombreCiudad" class="text-3xl text-white font-bold text-center">
           Clima en ....
-        </h3>
-        <h2 id="temperatura" class="text-8xl text-white font-black">00°C</h2>
+        </h2>
+        <h3 id="temperatura" class="text-8xl text-white font-black">00°C</h3>
         <div class="flex gap-6">
           <p class="text-white text-3xl font-medium">
             Min:
@@ -77,6 +90,6 @@
     </footer>
 
     <!-- Scripts / JavaScript -->
-    <script src="assets/js/app.js"></script>
+    <script src="assets/js/app.js" defer></script>
   </body>
 </html>
