@@ -23,6 +23,8 @@ function validarCamposFormulario(ciudad, pais) {
   }
 
   consultarApiClima(ciudad, pais);
+
+  formulario.reset();
 }
 
 function mensajeErrorFormulario(mensaje) {
@@ -57,6 +59,42 @@ function mensajeErrorFormulario(mensaje) {
 }
 
 function consultarApiClima(ciudad, pais) {
-  const apiKey = import.meta.env.VITE_API_KEY;
-  console.log(apiKey);
+  // https://home.openweathermap.org/api_keys
+  const apiKey = "9ac42084bdef60c7633c4556475bca7d";
+
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${ciudad},${pais}&appid=${apiKey}`;
+
+  fetch(url)
+    .then((respuesta) => respuesta.json())
+    .then((datos) => {
+      if (datos.cod === "404") {
+        mensajeErrorFormulario(
+          "No se puedo obtener el clima de la ciudad ingresada.",
+        );
+        return;
+      }
+
+      mostrarDatosDelClima(datos);
+    });
+}
+
+function mostrarDatosDelClima(datos) {
+  const {
+    name,
+    main: { temp, temp_max, temp_min },
+  } = datos;
+
+  const nombreCiudad = document.querySelector("#nombreCiudad");
+  const temperatura = document.querySelector("#temperatura");
+  const temperaturaMinima = document.querySelector("#temperaturaMinima");
+  const temperaturaMaxima = document.querySelector("#temperaturaMaxima");
+
+  nombreCiudad.textContent = `Clima en ${name}`;
+  temperatura.textContent = `${conversionDeKelvinACentigrados(temp)} C°`;
+  temperaturaMinima.textContent = `${conversionDeKelvinACentigrados(temp_min)} °`;
+  temperaturaMaxima.textContent = `${conversionDeKelvinACentigrados(temp_max)} °`;
+}
+
+function conversionDeKelvinACentigrados(temperatura) {
+  return parseInt(temperatura - 273.15);
 }
